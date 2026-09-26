@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glovebox: a USB stick of useful tools</title>
+<meta name="description" content="Glovebox is a portable toolkit for your USB stick. Run one file and pick which tools to install, or install them all.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 40'%3E%3Crect width='64' height='40' rx='3' fill='%23e8ecef'/%3E%3Crect x='16' y='14' width='12' height='12' rx='2' fill='%230e2a47'/%3E%3Crect x='36' y='14' width='12' height='12' rx='2' fill='%230e2a47'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-in">
+    <div class="plug" aria-hidden="true"><span></span><span></span></div>
+    <h1>Glovebox</h1>
+    <p class="lead">A folder of useful tools for your USB stick. Run one file, pick the tools you want, and they install onto the stick.</p>
+
+    <div class="dl-menu" role="group" aria-label="Download Glovebox">
+      <div class="dl-tabs" role="tablist" aria-label="Choose your system">
+        <button role="tab" aria-selected="true" data-os="win" id="tab-win" aria-controls="panel-win">Windows</button>
+        <button role="tab" aria-selected="false" data-os="mac" id="tab-mac" aria-controls="panel-mac">macOS</button>
+        <button role="tab" aria-selected="false" data-os="linux" id="tab-linux" aria-controls="panel-linux">Linux</button>
+      </div>
+
+      <div class="dl-panel" role="tabpanel" id="panel-win" aria-labelledby="tab-win">
+        <a class="btn primary" href="https://github.com/sillyjoshua/glovebox/releases/latest/download/glovebox.zip" id="dl-win">Download glovebox.zip</a>
+        <p class="fine">Unzip it onto your USB stick, then double-click <code>run.bat</code>.</p>
+      </div>
+      <div class="dl-panel" role="tabpanel" id="panel-mac" hidden aria-labelledby="tab-mac">
+        <a class="btn primary" href="https://github.com/sillyjoshua/glovebox/releases/latest/download/glovebox.zip" id="dl-mac">Download glovebox.zip</a>
+        <p class="fine">Unzip it onto your USB stick, open Terminal in the folder, and run <code>./run.sh</code>.</p>
+      </div>
+      <div class="dl-panel" role="tabpanel" id="panel-linux" hidden aria-labelledby="tab-linux">
+        <a class="btn primary" href="https://github.com/sillyjoshua/glovebox/releases/latest/download/glovebox.zip" id="dl-linux">Download glovebox.zip</a>
+        <p class="fine">Unzip it onto your USB stick, open a terminal in the folder, and run <code>./run.sh</code>.</p>
+      </div>
+
+      <p class="fine" id="file-meta">Same file for every system &mdash; the menu just picks your instructions.</p>
+      <p class="fine"><a href="https://github.com/sillyjoshua/glovebox/releases" id="all-releases">All releases and checksums on GitHub</a></p>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="block" aria-labelledby="how">
+    <h2 id="how">Set it up in three steps</h2>
+    <ol class="steps">
+      <li>
+        <h3>Put it on the stick</h3>
+        <p>Download the zip and unzip it onto your USB drive.</p>
+      </li>
+      <li>
+        <h3>Run one file</h3>
+        <p>Open a terminal in the folder and run the launcher shown in the download menu above (<code>run.bat</code> on Windows, <code>./run.sh</code> on macOS and Linux).</p>
+        <p class="fine">You need Python 3.8 or newer. Any system with Python can also use <code>python run.py</code>.</p>
+      </li>
+      <li>
+        <h3>Pick your tools</h3>
+        <p>A page opens in your browser. Select a tool or two and choose <em>Install selected</em>, or install everything for that computer.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="block" aria-labelledby="tools">
+    <h2 id="tools">What's in the rack</h2>
+    <p class="sub" id="tools-sub">Loading the tool list…</p>
+
+    <label class="search">
+      <span class="sr">Search tools</span>
+      <input id="q" type="search" placeholder="Search tools">
+    </label>
+    <div id="cats" class="cats" role="group" aria-label="Category"></div>
+
+    <ul id="rack" class="rack" aria-live="polite"></ul>
+    <p id="empty" class="empty" hidden>No tools match. Clear the search or pick another category.</p>
+  </section>
+
+  <section class="block" aria-labelledby="notes">
+    <h2 id="notes">Good to know</h2>
+    <dl class="notes">
+      <dt>Most tools open the official download page.</dt>
+      <dd>Vendors change their download links often, so Glovebox sends you to the source instead of a copy that could go stale. Sysinternals downloads directly.</dd>
+      <dt>Everything stays on the stick.</dt>
+      <dd>Glovebox writes only inside its own folder. Its local page listens on your computer only, never the network.</dd>
+      <dt>Add your own tools.</dt>
+      <dd>Edit <code>tools/catalog.json</code> in the folder. The README shows the format.</dd>
+    </dl>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <p>Glovebox is free to use. Third-party tools belong to their authors and keep their own licences.</p>
+</footer>
+
+<script defer src="site.js"></script>
+</body>
+</html>

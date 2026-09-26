@@ -1,0 +1,216 @@
+{
+  "version": 1,
+  "note": "Add your own tools by appending entries. 'platforms' is a list of win / linux / mac. 'kind' is 'archive' (unzip into the folder), 'exe' (single portable file) or 'page' (opens the official download page, for tools whose direct URLs change often).",
+  "tools": [
+    {
+      "id": "7zip",
+      "name": "7-Zip",
+      "category": "Files",
+      "blurb": "Open and create zip, 7z, rar and tar archives.",
+      "platforms": ["win"],
+      "kind": "page",
+      "url": "https://www.7-zip.org/download.html",
+      "size_mb": 2
+    },
+    {
+      "id": "notepadpp",
+      "name": "Notepad++ (portable)",
+      "category": "Text",
+      "blurb": "Fast text and code editor with tabs and syntax colours.",
+      "platforms": ["win"],
+      "kind": "page",
+      "url": "https://notepad-plus-plus.org/downloads/",
+      "size_mb": 6
+    },
+    {
+      "id": "vlc",
+      "name": "VLC (portable zip)",
+      "category": "Media",
+      "blurb": "Plays nearly any audio or video file, no codecs needed.",
+      "platforms": ["win", "linux", "mac"],
+      "kind": "page",
+      "url": "https://www.videolan.org/vlc/",
+      "size_mb": 45
+    },
+    {
+      "id": "sysinternals",
+      "name": "Sysinternals Suite",
+      "category": "Diagnostics",
+      "blurb": "Process Explorer, Autoruns, TCPView and 70 more Windows diagnostic tools.",
+      "platforms": ["win"],
+      "kind": "archive",
+      "url": "https://download.sysinternals.com/files/SysinternalsSuite.zip",
+      "size_mb": 40
+    },
+    {
+      "id": "everything",
+      "name": "Everything",
+      "category": "Files",
+      "blurb": "Finds any file on the machine instantly by name.",
+      "platforms": ["win"],
+      "kind": "page",
+      "url": "https://www.voidtools.com/downloads/",
+      "size_mb": 2
+    },
+    {
+      "id": "cpuz",
+      "name": "CPU-Z",
+      "category": "Diagnostics",
+      "blurb": "Shows CPU, memory and motherboard details.",
+      "platforms": ["win"],
+      "kind": "page",
+      "url": "https://www.cpuid.com/softwares/cpu-z.html",
+      "size_mb": 2
+    },
+    {
+      "id": "crystaldiskinfo",
+      "name": "CrystalDiskInfo (portable)",
+      "category": "Diagnostics",
+      "blurb": "Reads drive health (SMART) so you can spot a failing disk.",
+      "platforms": ["win"],
+      "kind": "page",
+      "url": "https://crystalmark.info/en/download/",
+      "size_mb": 5
+    },
+    {
+      "id": "rufus",
+      "name": "Rufus",
+      "category": "Disks",
+      "blurb": "Turns an ISO into a bootable USB installer.",
+      "platforms": ["win"],
+      "kind": "page",
+      "url": "https://rufus.ie/",
+      "size_mb": 1
+    },
+    {
+      "id": "etcher",
+      "name": "balenaEtcher",
+      "category": "Disks",
+      "blurb": "Flash disk images to USB or SD cards, on any OS.",
+      "platforms": ["win", "linux", "mac"],
+      "kind": "page",
+      "url": "https://etcher.balena.io/#download-etcher",
+      "size_mb": 150
+    },
+    {
+      "id": "putty",
+      "name": "PuTTY",
+      "category": "Network",
+      "blurb": "SSH and serial terminal client.",
+      "platforms": ["win"],
+      "kind": "page",
+      "url": "https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html",
+      "size_mb": 3
+    },
+    {
+      "id": "winscp",
+      "name": "WinSCP (portable)",
+      "category": "Network",
+      "blurb": "Drag and drop file transfer over SFTP and SCP.",
+      "platforms": ["win"],
+      "kind": "page",
+      "url": "https://winscp.net/eng/download.php",
+      "size_mb": 12
+    },
+    {
+      "id": "wireshark",
+      "name": "Wireshark (portable)",
+      "category": "Network",
+      "blurb": "Inspect network traffic packet by packet.",
+      "platforms": ["win", "linux", "mac"],
+      "kind": "page",
+      "url": "https://www.wireshark.org/download.html",
+      "size_mb": 80
+    },
+    {
+      "id": "keepassxc",
+      "name": "KeePassXC",
+      "category": "Security",
+      "blurb": "Offline password manager. Keep the database on the stick.",
+      "platforms": ["win", "linux", "mac"],
+      "kind": "page",
+      "url": "https://keepassxc.org/download/",
+      "size_mb": 40
+    },
+    {
+      "id": "veracrypt",
+      "name": "VeraCrypt (portable)",
+      "category": "Security",
+      "blurb": "Encrypt files or the whole drive with a password.",
+      "platforms": ["win", "linux", "mac"],
+      "kind": "page",
+      "url": "https://www.veracrypt.fr/en/Downloads.html",
+      "size_mb": 40
+    },
+    {
+      "id": "malwarebytes_adwcleaner",
+      "name": "AdwCleaner",
+      "category": "Security",
+      "blurb": "Removes adware and unwanted browser add-ons.",
+      "platforms": ["win"],
+      "kind": "page",
+      "url": "https://www.malwarebytes.com/adwcleaner",
+      "size_mb": 8
+    },
+    {
+      "id": "hwinfo",
+      "name": "HWiNFO (portable)",
+      "category": "Diagnostics",
+      "blurb": "Deep hardware report with live temperatures and sensors.",
+      "platforms": ["win"],
+      "kind": "page",
+      "url": "https://www.hwinfo.com/download/",
+      "size_mb": 10
+    },
+    {
+      "id": "python_embed",
+      "name": "Python (embeddable)",
+      "category": "Dev",
+      "blurb": "A self-contained Python you can run without installing.",
+      "platforms": ["win"],
+      "kind": "page",
+      "url": "https://www.python.org/downloads/windows/",
+      "size_mb": 10
+    },
+    {
+      "id": "vscode",
+      "name": "VS Code (portable)",
+      "category": "Dev",
+      "blurb": "Full code editor. Portable mode keeps settings on the stick.",
+      "platforms": ["win", "linux", "mac"],
+      "kind": "page",
+      "url": "https://code.visualstudio.com/download",
+      "size_mb": 130
+    },
+    {
+      "id": "sumatrapdf",
+      "name": "SumatraPDF (portable)",
+      "category": "Documents",
+      "blurb": "Very light PDF, ePub and comic reader.",
+      "platforms": ["win"],
+      "kind": "page",
+      "url": "https://www.sumatrapdfreader.org/download-free-pdf-viewer",
+      "size_mb": 10
+    },
+    {
+      "id": "libreoffice_portable",
+      "name": "LibreOffice (portable)",
+      "category": "Documents",
+      "blurb": "Word processor, spreadsheet and slides, no install.",
+      "platforms": ["win"],
+      "kind": "page",
+      "url": "https://portableapps.com/apps/office/libreoffice_portable",
+      "size_mb": 350
+    },
+    {
+      "id": "firefox_portable",
+      "name": "Firefox (portable)",
+      "category": "Internet",
+      "blurb": "A browser that carries bookmarks and logins with you.",
+      "platforms": ["win"],
+      "kind": "page",
+      "url": "https://portableapps.com/apps/internet/firefox_portable",
+      "size_mb": 70
+    }
+  ]
+}

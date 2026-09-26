@@ -1,0 +1,201 @@
+:root {
+  --chassis: #0e2a47;
+  --chassis-2: #16385a;
+  --silver: #e8ecef;
+  --paper: #f6f8f9;
+  --ink: #12202e;
+  --muted: #5b6b7a;
+  --brass: #c9a227;
+  --brass-dark: #8f7215;
+  --red: #d64545;
+  --green: #2f9e6b;
+  --line: #cfd7de;
+  --font-head: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-padding-bottom: 96px; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 16px/1.5 var(--font-body);
+}
+
+.sr {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* ---------- header: the USB plug ---------- */
+.top {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  background: var(--chassis);
+  color: var(--silver);
+  padding: 28px clamp(16px, 4vw, 56px);
+  border-bottom: 4px solid var(--brass);
+}
+
+.plug {
+  width: 64px; height: 40px;
+  background: var(--silver);
+  border-radius: 3px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  flex: none;
+  box-shadow: inset 0 0 0 3px #b9c2ca;
+}
+.plug span {
+  width: 12px; height: 12px;
+  background: var(--chassis);
+  border-radius: 2px;
+}
+
+.title h1 {
+  margin: 0;
+  font: 700 clamp(28px, 4vw, 40px)/1.1 var(--font-head);
+  letter-spacing: -0.01em;
+}
+.title p { margin: 4px 0 0; color: #a9bccd; font-size: 15px; }
+
+.bulk { margin-left: auto; display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* ---------- buttons ---------- */
+.btn {
+  font: 600 15px/1 var(--font-body);
+  padding: 12px 18px;
+  border-radius: 6px;
+  border: 2px solid var(--silver);
+  background: transparent;
+  color: var(--silver);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex; align-items: center;
+}
+.btn:hover { background: rgba(255,255,255,.1); }
+.btn.primary { background: var(--brass); border-color: var(--brass); color: var(--ink); }
+.btn.primary:hover { background: #d8b23a; }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.btn:focus-visible, input:focus-visible, .slot:focus-visible, .cat:focus-visible {
+  outline: 3px solid #4aa3ff; outline-offset: 2px;
+}
+
+main { max-width: 980px; margin: 0 auto; padding: 28px clamp(16px, 4vw, 32px) 140px; }
+
+/* ---------- toolbar ---------- */
+.toolbar { display: flex; flex-direction: column; gap: 14px; margin-bottom: 22px; }
+.search input {
+  width: 100%;
+  font: 400 16px var(--font-body);
+  padding: 12px 14px;
+  border: 2px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+}
+.cats { display: flex; gap: 8px; flex-wrap: wrap; }
+.cat {
+  font: 500 14px var(--font-body);
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1.5px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+}
+.cat[aria-pressed="true"] { background: var(--chassis); border-color: var(--chassis); color: #fff; }
+
+/* ---------- the rack: one slot per tool ---------- */
+.rack {
+  display: flex; flex-direction: column;
+  background: var(--chassis);
+  border-radius: 10px;
+  padding: 10px;
+  gap: 6px;
+}
+
+.slot {
+  display: grid;
+  grid-template-columns: 22px 1fr auto;
+  align-items: center;
+  gap: 16px;
+  background: var(--chassis-2);
+  color: var(--silver);
+  border: 2px solid transparent;
+  border-radius: 6px;
+  padding: 14px 16px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  font: inherit;
+}
+.slot:hover { border-color: #2c5786; }
+.slot[aria-pressed="true"] { border-color: var(--brass); background: #1b4068; }
+.slot[data-unsupported="true"] { opacity: .45; cursor: not-allowed; }
+
+.led {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: #3a4f66;
+  box-shadow: inset 0 0 0 2px #24384d;
+}
+.slot[data-status="queued"] .led { background: var(--brass); box-shadow: 0 0 10px var(--brass); }
+.slot[data-status="installed"] .led { background: var(--green); box-shadow: 0 0 10px var(--green); }
+.slot[data-status="working"] .led { background: #4aa3ff; box-shadow: 0 0 10px #4aa3ff; animation: pulse 1s ease-in-out infinite; }
+.slot[data-status="failed"] .led { background: var(--red); box-shadow: 0 0 10px var(--red); }
+
+@keyframes pulse { 50% { opacity: .35; } }
+
+.slot h3 { margin: 0; font: 700 18px/1.2 var(--font-head); }
+.slot p { margin: 2px 0 0; color: #b5c6d6; font-size: 14px; }
+
+.side { text-align: right; font-size: 13px; color: #9fb3c6; min-width: 92px; }
+.side b { display: block; color: var(--silver); font-weight: 600; font-size: 14px; }
+
+.mark {
+  display: inline-block; margin-top: 6px;
+  color: var(--brass); font-weight: 600; font-size: 13px;
+  text-decoration: underline; cursor: pointer;
+}
+.mark:focus-visible { outline: 3px solid #4aa3ff; outline-offset: 2px; }
+
+.empty { text-align: center; color: var(--muted); padding: 40px 0; }
+
+/* ---------- selection tray ---------- */
+.tray {
+  position: fixed; left: 0; right: 0; bottom: 0;
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  padding: 14px clamp(16px, 4vw, 56px);
+  background: var(--chassis);
+  border-top: 4px solid var(--brass);
+  color: var(--silver);
+}
+.tray[hidden] { display: none; }
+.tray-info { margin-right: auto; }
+.tray-bar { flex: 1 1 160px; height: 8px; background: #24384d; border-radius: 4px; overflow: hidden; }
+.tray-bar[hidden] { display: none; }
+#bar-fill { height: 100%; width: 0; background: var(--brass); transition: width .3s; }
+.btn.ghost { border-color: transparent; }
+
+/* ---------- log ---------- */
+.log { max-width: 980px; margin: 0 auto 160px; padding: 0 clamp(16px, 4vw, 32px); }
+.log[hidden] { display: none; }
+.log h2 { font: 700 20px var(--font-head); }
+.log ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.log li { padding: 10px 14px; border-left: 4px solid var(--green); background: #fff; border-radius: 0 6px 6px 0; }
+.log li.bad { border-left-color: var(--red); }
+
+@media (max-width: 620px) {
+  .bulk { margin-left: 0; width: 100%; }
+  .bulk .btn { flex: 1 1 100%; justify-content: center; }
+  .slot { grid-template-columns: 22px 1fr; }
+  .side { grid-column: 2; text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .led, #bar-fill { animation: none !important; transition: none !important; }
+}

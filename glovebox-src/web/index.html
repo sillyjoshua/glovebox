@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glovebox</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="plug" aria-hidden="true">
+    <span></span><span></span>
+  </div>
+  <div class="title">
+    <h1>Glovebox</h1>
+    <p id="meta">Loading…</p>
+  </div>
+  <div class="bulk">
+    <button id="install-all" class="btn primary">Install everything for this computer</button>
+    <a id="zip" class="btn" href="/api/bundle.zip" download>Download as zip</a>
+  </div>
+</header>
+
+<main>
+  <section class="toolbar" aria-label="Filter tools">
+    <label class="search">
+      <span class="sr">Search tools</span>
+      <input id="q" type="search" placeholder="Search tools">
+    </label>
+    <div id="cats" class="cats" role="group" aria-label="Category"></div>
+  </section>
+
+  <section id="rack" class="rack" aria-live="polite"></section>
+
+  <p id="empty" class="empty" hidden>No tools match. Clear the search or pick another category.</p>
+</main>
+
+<footer class="tray" id="tray" hidden>
+  <div class="tray-info"><strong id="count">0</strong> selected</div>
+  <div class="tray-bar" id="bar" hidden><div id="bar-fill"></div></div>
+  <button id="install-sel" class="btn primary">Install selected</button>
+  <button id="clear" class="btn ghost">Clear</button>
+</footer>
+
+<div id="log" class="log" hidden>
+  <h2>Install log</h2>
+  <ul id="log-list"></ul>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
